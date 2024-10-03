@@ -50,13 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        title: Text("Daftar"),
+        title: Text("Silahkan Daftar"),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1.0),
           child: Container(
@@ -112,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       shrinkWrap: true,
                       children: [
                         Text(
-                          'Selamat Datang!',
+                          'Selamat Datang',
                           style: TextStyle(
                             color: ColorsCustom.black,
                             fontSize: 18,
@@ -121,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          'Lengkapi informasi untuk mulai investasi, gadai dan transaksi finansial lainnya.',
+                          'Lengkapi informasi untuk mulai proses pijat dengan biduan & fasilitas spesial (doa bareng)',
                           style: TextStyle(
                             color: ColorsCustom.generalText,
                             fontSize: 15,
