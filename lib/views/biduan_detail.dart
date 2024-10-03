@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BiduanDetail extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class BiduanDetail extends StatefulWidget {
 class _BiduanDetailState extends State<BiduanDetail> {
   @override
   Widget build(BuildContext context) {
+    var imgAssetPath;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -27,7 +29,7 @@ class _BiduanDetailState extends State<BiduanDetail> {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Image.asset("assets/45.png", height: 220),
+                  Image.asset("assets/45.png", height: 150),
                   SizedBox(
                     width: 20,
                   ),
@@ -47,24 +49,74 @@ class _BiduanDetailState extends State<BiduanDetail> {
                           style: TextStyle(fontSize: 19, color: Colors.grey),
                         ),
                         SizedBox(
-                          height: 40,
+                          height: 5,
                         ),
+
                         Row(
                           children: <Widget>[
-                            IconTile(
-                              backColor: Color(0xffFFECDD),
-                              imgAssetPath: "assets/email.png",
-                            ),
-                            IconTile(
-                              backColor: Color(0xffFEF2F0),
-                              imgAssetPath: "assets/call.png",
-                            ),
-                            IconTile(
-                              backColor: Color(0xffEBECEF),
-                              imgAssetPath: "assets/video_call.png",
+                            Expanded(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color.fromARGB(255, 239, 237, 235),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+                                ),
+                                onPressed: () async {
+                                  // Aksi pertama: buka WhatsApp (launchUri1)
+                                  final Uri launchUri1 = Uri.parse('https://wa.me/6282121339191');
+                                  if (await canLaunchUrl(launchUri1)) {
+                                    await launchUrl(launchUri1);
+                                  } else {
+                                    print('Could not launch WhatsApp');
+                                  }
+                                },
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: GestureDetector(
+                                        onTap: () async {
+                                          // Aksi pertama: buka WhatsApp (launchUri1)
+                                          final Uri launchUri1 = Uri.parse('https://wa.me/6282121339191');
+                                          if (await canLaunchUrl(launchUri1)) {
+                                            await launchUrl(launchUri1);
+                                          } else {
+                                            print('Could not launch WhatsApp');
+                                          }
+                                        },
+                                        child: IconTile(
+                                          imgAssetPath: "assets/wa.png",
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 10), // Space between icons
+                                    // Expanded(
+                                    //   child: GestureDetector(
+                                    //     onTap: () async {
+                                    //       // Aksi kedua: kirim email
+                                    //       final Uri emailUri = Uri(
+                                    //         scheme: 'mailto',
+                                    //         path: 'example@example.com', // Ganti dengan email yang sesuai
+                                    //         query: 'subject=Hello&body=This is the email body', // Subjek dan isi email
+                                    //       );
+                                    //       if (await canLaunchUrl(emailUri)) {
+                                    //         await launchUrl(emailUri);
+                                    //       } else {
+                                    //         print('Could not launch email client');
+                                    //       }
+                                    //     },
+                                    //     child: IconTile(
+                                    //       imgAssetPath: "assets/email.png",
+                                    //     ),
+                                    //   ),
+                                    // ),
+                                    LoveRatingButton()
+                                  ],
+                                ),
+                              ),
                             ),
                           ],
                         )
+
+
                       ],
                     ),
                   ),
@@ -93,10 +145,10 @@ class _BiduanDetailState extends State<BiduanDetail> {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Image.asset("assets/mappin.png"),
-                          SizedBox(
-                            width: 20,
-                          ),
+                          // Image.asset("assets/mappin.png"),
+                          // SizedBox(
+                          //   width: 10,
+                          // ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -157,7 +209,7 @@ Open till 7 Pm''',
                   ),
                   Image.asset(
                     "assets/map.png",
-                    width: 180,
+                    width: 120,
                   )
                 ],
               ),
@@ -195,7 +247,7 @@ Open till 7 Pm''',
                           Container(
                             width: MediaQuery.of(context).size.width / 2 - 130,
                             child: Text(
-                              "List Of Schedule",
+                              "Jadwal Book",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 17),
                             ),
@@ -229,7 +281,7 @@ Open till 7 Pm''',
                           Container(
                             width: MediaQuery.of(context).size.width / 2 - 130,
                             child: Text(
-                              "Doctor's Daily Post",
+                              "Harga Book",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 17),
                             ),
@@ -271,3 +323,34 @@ class IconTile extends StatelessWidget {
     );
   }
 }
+
+class LoveRatingButton extends StatefulWidget {
+  @override
+  _LoveRatingButtonState createState() => _LoveRatingButtonState();
+}
+
+class _LoveRatingButtonState extends State<LoveRatingButton> {
+  // Status rating love: apakah sudah di-tap (liked) atau belum
+  bool isLoved = false; 
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          // Toggle the status
+          setState(() {
+            isLoved = !isLoved; // Ubah status liked
+          });
+        },
+        child: IconTile(
+          // Ganti gambar atau tampilkan emoji love sesuai status
+          imgAssetPath: isLoved ? "assets/notlove.png" : "assets/lovefull.png",
+          // Mengubah warna berdasarkan status liked
+          // backgroundColor: isLoved ? Colors.red : Colors.grey,
+        ),
+      ),
+    );
+  }
+}
+

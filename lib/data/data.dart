@@ -10,6 +10,7 @@ List<SpecialityModel> getSpeciality() {
   specialityModel.speciality = "Maya";
   specialityModel.imgAssetPath = "assets/45.png";
   specialityModel.backgroundColor = Color(0xffFBB97C);
+  specialityModel.detail = "Dokter Umum";
   specialities.add(specialityModel);
 
   specialityModel = new SpecialityModel();
@@ -19,6 +20,7 @@ List<SpecialityModel> getSpeciality() {
   specialityModel.speciality = "Lynda";
   specialityModel.imgAssetPath = "assets/23.png";
   specialityModel.backgroundColor = Color(0xffF69383);
+  specialityModel.detail = "Dokter Umum";
   specialities.add(specialityModel);
 
   specialityModel = new SpecialityModel();
@@ -28,6 +30,7 @@ List<SpecialityModel> getSpeciality() {
   specialityModel.speciality = "Santi";
   specialityModel.imgAssetPath = "assets/78.png";
   specialityModel.backgroundColor = Color(0xffEACBCB);
+  specialityModel.detail = "Dokter Umum";
   specialities.add(specialityModel);
 
   specialityModel = new SpecialityModel();
