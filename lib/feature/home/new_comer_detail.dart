@@ -2,15 +2,13 @@ import 'package:doctor_booking_app/feature/schedule/schedule.dart';
 import 'package:doctor_booking_app/views/form_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:share_plus/share_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class BiduanDetail extends StatefulWidget {
+class NewComerDetail extends StatefulWidget {
   @override
-  _BiduanDetailState createState() => _BiduanDetailState();
+  _NewComerDetailState createState() => _NewComerDetailState();
 }
 
-class _BiduanDetailState extends State<BiduanDetail> {
+class _NewComerDetailState extends State<NewComerDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +29,8 @@ class _BiduanDetailState extends State<BiduanDetail> {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Image.asset("assets/23_1.png", height: 180),
+                  Expanded(child: Image.asset("assets/45.png", height: 220),),
+
                   SizedBox(
                     width: 20,
                   ),
@@ -42,55 +41,33 @@ class _BiduanDetailState extends State<BiduanDetail> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        SizedBox(
-                          height: 10,
+                        Text(
+                          "Ghea Kyubi",
+                          style: TextStyle(fontSize: 32),
                         ),
-                        Flexible(
-                          flex: 2,
-                          child: Text(
-                            "Inul Daratista",
-                            style: TextStyle(fontSize: 32, color: Colors.red),
-                          ),
+                        Text(
+                          "Goyang From Home Specialist",
+                          style: TextStyle(fontSize: 19, color: Colors.grey),
                         ),
                         SizedBox(
-                          height: 6,
+                          height: 40,
                         ),
-                        Flexible(
-                          flex: 1,
-                          child: Text(
-                            "Goyang Ngebor Speailist",
-                            style: TextStyle(fontSize: 19, color: Colors.grey),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 6,
-                        ),
-                        // Flexible(
-                        //   flex: 1,
-                        //   child: Row(
-                        //     children: <Widget>[
-                        //       Expanded(
-                        //         child: IconTile(
-                        //           backColor: Color(0xffFFECDD),
-                        //           imgAssetPath: "assets/email.png",
-                        //         ),
-                        //       ),
-                        //       Expanded(
-                        //         child: IconTile(
-                        //           backColor: Color(0xffFEF2F0),
-                        //           imgAssetPath: "assets/call.png",
-                        //         ),
-                        //       ),
-                        //       Expanded(
-                        //         child: IconTile(
-                        //           backColor: Color(0xffEBECEF),
-                        //           imgAssetPath: "assets/video_call.png",
-                        //         ),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
-                        LoveRatingButton(),
+                        Row(
+                          children: <Widget>[
+                            IconTile(
+                              backColor: Color(0xffFFECDD),
+                              imgAssetPath: "assets/email.png",
+                            ),
+                            IconTile(
+                              backColor: Color(0xffFEF2F0),
+                              imgAssetPath: "assets/call.png",
+                            ),
+                            IconTile(
+                              backColor: Color(0xffEBECEF),
+                              imgAssetPath: "assets/video_call.png",
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -107,12 +84,12 @@ class _BiduanDetailState extends State<BiduanDetail> {
                 height: 16,
               ),
               Text(
-                "Hj. Ainur Rokhimah, atau yang lebih dikenal sebagai Inul Daratista, adalah seorang penyanyi dangdut dan aktris berkebangsaan Indonesia. Inul terkenal dengan gaya goyang ngebor",
+                "Ghea Kyubi, yang memiliki nama asli Ghea Kyubi bintai Naruto, adalah seorang penyanyi dangdut terkenal asal Indonesia yang lahir pada 21 Januari 1779 di Pasuruan, Jawa Timur. Ayo Booking Saya bapak-bapak",
                 style: TextStyle(color: Colors.grey, fontSize: 16),
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
-                height: 24,
+                height: 10,
               ),
               Row(
                 children: <Widget>[
@@ -138,7 +115,7 @@ class _BiduanDetailState extends State<BiduanDetail> {
                               ),
                               Container(
                                   width:
-                                      MediaQuery.of(context).size.width - 268,
+                                  MediaQuery.of(context).size.width - 268,
                                   child: Text(
                                     "Jl. Embong Malang No. 1,3,5, Tunjungan Plaza Tunjungan Plaza 5, Lantai 6, Surabaya Telp. (031) 546 8282",
                                     style: TextStyle(color: Colors.grey),
@@ -160,7 +137,7 @@ class _BiduanDetailState extends State<BiduanDetail> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                "Daily Practict",
+                                "Daily Practice",
                                 style: TextStyle(
                                     color: Colors.black87.withOpacity(0.7),
                                     fontSize: 20),
@@ -170,7 +147,7 @@ class _BiduanDetailState extends State<BiduanDetail> {
                               ),
                               Container(
                                   width:
-                                      MediaQuery.of(context).size.width - 268,
+                                  MediaQuery.of(context).size.width - 268,
                                   child: Text(
                                     '''Monday - Friday
 Open till Drop''',
@@ -203,7 +180,7 @@ Open till Drop''',
                   Expanded(
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+                      EdgeInsets.symmetric(vertical: 24, horizontal: 16),
                       decoration: BoxDecoration(
                           color: Color(0xffFBB97C),
                           borderRadius: BorderRadius.circular(20)),
@@ -229,7 +206,7 @@ Open till Drop''',
                             child: Container(
                               width: MediaQuery.of(context).size.width / 2 - 130,
                               child: Text(
-                                "Book Now Singer",
+                                "Book Biduan",
                                 style: TextStyle(color: Colors.white, fontSize: 17),
                               ),
                             ),
@@ -254,7 +231,7 @@ Open till Drop''',
                       },
                       child: Container(
                         padding:
-                            EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+                        EdgeInsets.symmetric(vertical: 24, horizontal: 16),
                         decoration: BoxDecoration(
                             color: Color(0xffA5A5A5),
                             borderRadius: BorderRadius.circular(20)),
@@ -272,7 +249,7 @@ Open till Drop''',
                             ),
                             Container(
                               width:
-                                  MediaQuery.of(context).size.width / 2 - 130,
+                              MediaQuery.of(context).size.width / 2 - 130,
                               child: Text(
                                 "Jadwal Harian",
                                 style: TextStyle(
@@ -285,7 +262,7 @@ Open till Drop''',
                     ),
                   )
                 ],
-              ),
+              )
             ],
           ),
         ),
