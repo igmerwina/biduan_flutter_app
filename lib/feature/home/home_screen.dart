@@ -188,7 +188,7 @@ class _CategorieTileState extends State<CategorieTile> {
           widget.categorie!,
           style: TextStyle(
               color:
-                  widget.isSelected! ? Color(0xffFC9535) : Color(0xffA1A1A1)),
+              widget.isSelected! ? Color(0xffFC9535) : Color(0xffA1A1A1)),
         ),
       ),
     );
@@ -202,9 +202,9 @@ class SpecialistTile extends StatelessWidget {
   final Color? backColor;
   SpecialistTile(
       {required this.imgAssetPath,
-      required this.speciality,
-      required this.noOfDoctors,
-      required this.backColor});
+        required this.speciality,
+        required this.noOfDoctors,
+        required this.backColor});
 
   @override
   Widget build(BuildContext context) {
@@ -357,7 +357,7 @@ class BiduanTile extends StatelessWidget {
                 if (Theme.of(context).platform == TargetPlatform.iOS) {
                   // iOS: Use url_launcher to open the phone dialer
                   final Uri launchUri =
-                      Uri.parse('https://wa.me/6287729833846');
+                  Uri.parse('https://wa.me/6287729833846');
 
                   if (await canLaunchUrl(launchUri)) {
                     await launchUrl(launchUri);
@@ -367,7 +367,7 @@ class BiduanTile extends StatelessWidget {
                 } else {
                   // Android: Use FlutterPhoneDirectCaller to make the call directly
                   bool? res =
-                      await FlutterPhoneDirectCaller.callNumber(phoneNumber);
+                  await FlutterPhoneDirectCaller.callNumber(phoneNumber);
                   if (res != null && res) {
                     print('Call made successfully');
                   } else {
@@ -416,7 +416,7 @@ class NewComer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Inul Otista",
+                  "Ghea Kyubi",
                   style: TextStyle(color: Color(0xffFC9535), fontSize: 19),
                 ),
                 SizedBox(
