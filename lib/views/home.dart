@@ -4,7 +4,6 @@ import 'package:doctor_booking_app/views/biduan_detail.dart';
 import 'package:doctor_booking_app/views/doctor_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:url_launcher/url_launcher.dart';
 
 String? selectedCategorie = "Full Body";
 
@@ -28,17 +27,6 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.blue, // Navigation bar
-          statusBarColor: Colors.red, // Status bar
-        ),
-        iconTheme: IconThemeData(color: Colors.black87),
-      ),
-      drawer: Drawer(child: Container() // Populate the Drawer in the next step.
-          ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
@@ -46,9 +34,6 @@ class HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(
-                height: 10,
-              ),
               Text(
                 "Temukan \nBiduan yang \nAnda Butuhkan",
                 style: TextStyle(
@@ -58,28 +43,6 @@ class HomePageState extends State<HomePage> {
               ),
               SizedBox(
                 height: 40,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Color(0xffEFEFEF),
-                    borderRadius: BorderRadius.circular(14)),
-                child: Row(
-                  children: <Widget>[
-                    Icon(Icons.search),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "Search",
-                      style: TextStyle(color: Colors.grey, fontSize: 19),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 30,
               ),
               Text(
                 "Kategori",

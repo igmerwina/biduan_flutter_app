@@ -8,7 +8,7 @@ List<SpecialityModel> getSpeciality() {
   //1
   specialityModel.noOfDoctors = 10;
   specialityModel.speciality = "Dangdut Indie";
-  specialityModel.imgAssetPath = "assets/img1.png";
+  specialityModel.imgAssetPath = "assets/23.png";
   specialityModel.backgroundColor = Color(0xffFBB97C);
   specialities.add(specialityModel);
 
@@ -17,7 +17,7 @@ List<SpecialityModel> getSpeciality() {
   //2
   specialityModel.noOfDoctors = 17;
   specialityModel.speciality = "Dangdut Religi";
-  specialityModel.imgAssetPath = "assets/img2.png";
+  specialityModel.imgAssetPath = "assets/45.png";
   specialityModel.backgroundColor = Color(0xffF69383);
   specialities.add(specialityModel);
 
@@ -26,7 +26,7 @@ List<SpecialityModel> getSpeciality() {
   //3
   specialityModel.noOfDoctors = 27;
   specialityModel.speciality = "Dangdut Daerah";
-  specialityModel.imgAssetPath = "assets/img3.png";
+  specialityModel.imgAssetPath = "assets/78.png";
   specialityModel.backgroundColor = Color(0xffEACBCB);
   specialities.add(specialityModel);
 
