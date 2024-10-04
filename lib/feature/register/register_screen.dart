@@ -105,7 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          'Lengkapi informasi untuk mulai menggunakan berbagai fitur yang menarik.',
+                          'Lengkapi informasi untuk mulai proses pijat dengan biduan & fasilitas spesial (doa bareng)',
                           style: TextStyle(
                             color: ColorsCustom.generalText,
                             fontSize: 15,

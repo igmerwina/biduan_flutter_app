@@ -1,10 +1,11 @@
 import 'package:doctor_booking_app/data/data.dart';
 import 'package:doctor_booking_app/model/speciality.dart';
+import 'package:doctor_booking_app/views/biduan_detail.dart';
 import 'package:doctor_booking_app/views/doctor_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-String? selectedCategorie = "Adults";
+String? selectedCategorie = "Full Body";
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  List<String> categories = ["Adults", "Childrens", "Womens", "Mens"];
+  List<String> categories = ["Full Body", "Pijat Capek", "SPA", "Karaoke"];
 
   late List<SpecialityModel> specialities;
 
@@ -26,17 +27,6 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.blue, // Navigation bar
-          statusBarColor: Colors.red, // Status bar
-        ),
-        iconTheme: IconThemeData(color: Colors.black87),
-      ),
-      drawer: Drawer(child: Container() // Populate the Drawer in the next step.
-          ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
@@ -44,11 +34,8 @@ class HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(
-                height: 10,
-              ),
               Text(
-                "Find Your \nConsultation",
+                "Temukan \nBiduan yang \nAnda Butuhkan",
                 style: TextStyle(
                     color: Colors.black87.withOpacity(0.8),
                     fontSize: 30,
@@ -57,30 +44,8 @@ class HomePageState extends State<HomePage> {
               SizedBox(
                 height: 40,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Color(0xffEFEFEF),
-                    borderRadius: BorderRadius.circular(14)),
-                child: Row(
-                  children: <Widget>[
-                    Icon(Icons.search),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "Search",
-                      style: TextStyle(color: Colors.grey, fontSize: 19),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
               Text(
-                "Categories",
+                "Kategori",
                 style: TextStyle(
                     color: Colors.black87.withOpacity(0.8),
                     fontSize: 25,
@@ -127,7 +92,7 @@ class HomePageState extends State<HomePage> {
                 height: 20,
               ),
               Text(
-                "Doctos",
+                "TOP Rating",
                 style: TextStyle(
                     color: Colors.black87.withOpacity(0.8),
                     fontSize: 25,
@@ -136,7 +101,7 @@ class HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20,
               ),
-              DoctorsTile()
+              BiduanTile()
             ],
           ),
         ),
@@ -213,7 +178,7 @@ class SpecialistTile extends StatelessWidget {
             height: 6,
           ),
           Text(
-            "$noOfDoctors Doctors",
+            "$noOfDoctors Bintang",
             style: TextStyle(color: Colors.white, fontSize: 13),
           ),
           Image.asset(
@@ -242,7 +207,7 @@ class DoctorsTile extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Image.asset(
-              "assets/doctor_pic.png",
+              "assets/45.png",
               height: 50,
             ),
             SizedBox(
@@ -252,14 +217,14 @@ class DoctorsTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Dr. Stefeni Albert",
+                  "Lintang A",
                   style: TextStyle(color: Color(0xffFC9535), fontSize: 19),
                 ),
                 SizedBox(
                   height: 2,
                 ),
                 Text(
-                  "Heart Speailist",
+                  "Terapis Full Body",
                   style: TextStyle(fontSize: 15),
                 )
               ],
@@ -282,5 +247,66 @@ class DoctorsTile extends StatelessWidget {
         ),
       ),
     );
+
   }
 }
+
+class BiduanTile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => BiduanDetail()));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            color: Color(0xffFFEEE0), borderRadius: BorderRadius.circular(20)),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+        child: Row(
+          children: <Widget>[
+            Image.asset(
+              "assets/45.png",
+              height: 50,
+            ),
+            SizedBox(
+              width: 17,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "Lintang A",
+                  style: TextStyle(color: Color(0xffFC9535), fontSize: 19),
+                ),
+                SizedBox(
+                  height: 2,
+                ),
+                Text(
+                  "Terapis Full Body",
+                  style: TextStyle(fontSize: 15),
+                )
+              ],
+            ),
+            Spacer(),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 9),
+              decoration: BoxDecoration(
+                  color: Color(0xffFBB97C),
+                  borderRadius: BorderRadius.circular(13)),
+              child: Text(
+                "Call",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+
+  }
+}
+

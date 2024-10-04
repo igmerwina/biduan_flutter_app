@@ -75,28 +75,6 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 40,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Color(0xffEFEFEF),
-                    borderRadius: BorderRadius.circular(14)),
-                child: Row(
-                  children: <Widget>[
-                    Icon(Icons.search),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "Search",
-                      style: TextStyle(color: Colors.grey, fontSize: 19),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
               Text(
                 "Kategori",
                 style: TextStyle(
@@ -145,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20,
               ),
               Text(
-                "TOP Rating",
+                "Most Rated",
                 style: TextStyle(
                     color: Colors.black87.withOpacity(0.8),
                     fontSize: 25,
@@ -326,7 +304,7 @@ class BiduanTile extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Image.asset(
-              "assets/doctor_pic.png",
+              "assets/78.png",
               height: 50,
             ),
             SizedBox(
