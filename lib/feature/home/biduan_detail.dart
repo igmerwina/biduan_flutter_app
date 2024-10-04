@@ -317,3 +317,76 @@ class IconTile extends StatelessWidget {
     );
   }
 }
+
+
+class LoveRatingButton extends StatefulWidget {
+  @override
+  _LoveRatingButtonState createState() => _LoveRatingButtonState();
+}
+
+class _LoveRatingButtonState extends State<LoveRatingButton> {
+  // Status rating love: apakah sudah di-tap (liked) atau belum
+  bool isLoved = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Row(
+        children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                // Toggle the status
+                setState(() {
+                  isLoved = !isLoved; // Ubah status liked
+                });
+              },
+              child: IconTile(
+                // Ganti gambar atau tampilkan emoji love sesuai status
+                imgAssetPath: isLoved ? "assets/notlike.png" : "assets/like2.png",
+                // Mengubah warna berdasarkan status liked
+                // backgroundColor: isLoved ? Colors.red : Colors.grey,
+              ),
+            ),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                // Fungsi untuk membagikan konten
+                _shareContent();
+              },
+              child: IconTile(
+                imgAssetPath: "assets/share2.png",
+              ),
+            ),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: () async {
+                final Uri launchUri = Uri.parse('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+                if (await launchUrl(launchUri)) {
+                  await launchUrl(launchUri);
+                } else {
+                  throw 'Could not launch $launchUri';
+                }
+              },
+              child: IconTile(
+                imgAssetPath: "assets/yotube.png",
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  void _shareContent() async {
+    // Fungsi untuk membagikan konten
+    final box = context.findRenderObject() as RenderBox?;
+    await Share.share(
+      'Check out my website https://example.com',
+      subject: 'This is my website!',
+      sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+    );
+  }
+}

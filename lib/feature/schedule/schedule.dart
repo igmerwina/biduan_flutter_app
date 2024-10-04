@@ -20,7 +20,7 @@ class ScheduleScreen extends StatelessWidget {
         time: '15:00',
         activity: 'Slametetan sunatan'),
     Schedule(
-        day: 'Jum\at', date: '2024-10-04', time: '03:00', activity: 'SPA++'),
+        day: 'Jum\at', date: '2024-10-04', time: '03:00', activity: 'Karang Taruna RT03'),
   ];
 
   @override
