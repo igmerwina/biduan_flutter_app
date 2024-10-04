@@ -256,14 +256,14 @@ class DoctorsTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Lintang A",
+                  "Inul Daratista",
                   style: TextStyle(color: Color(0xffFC9535), fontSize: 19),
                 ),
                 SizedBox(
                   height: 2,
                 ),
                 Text(
-                  "Terapis Full Body",
+                  "Spesialis Goyang Ngebor",
                   style: TextStyle(fontSize: 15),
                 )
               ],
@@ -314,7 +314,7 @@ class BiduanTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Lintang A",
+                  "Inul Daratista",
                   style: TextStyle(color: Color(0xffFC9535), fontSize: 19),
                 ),
                 SizedBox(
