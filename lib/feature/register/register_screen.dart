@@ -49,16 +49,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Silahkan Daftar"),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1.0),
-          child: Container(
-            color: ColorsCustom.borderSoft,
-            height: 1.0,
-          ),
-        ),
-      ),
       body: SafeArea(
         child: BlocConsumer<RegisterBloc, RegisterState>(
           listener: (context, state) {
@@ -106,7 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       shrinkWrap: true,
                       children: [
                         Text(
-                          'Selamat Datang',
+                          'Selamat Datang!',
                           style: TextStyle(
                             color: ColorsCustom.black,
                             fontSize: 18,

@@ -1,11 +1,11 @@
 import 'package:doctor_booking_app/feature/home/bloc/home_bloc.dart';
+import 'package:doctor_booking_app/feature/home/home_screen.dart';
 import 'package:doctor_booking_app/feature/login/bloc/login_bloc.dart';
 import 'package:doctor_booking_app/feature/login/login_screen.dart';
 import 'package:doctor_booking_app/feature/register/bloc/register_bloc.dart';
 import 'package:doctor_booking_app/feature/register/register_screen.dart';
 import 'package:doctor_booking_app/injection.dart';
 import 'package:doctor_booking_app/routes.dart';
-import 'package:doctor_booking_app/views/home.dart';
 import 'package:doctor_booking_app/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,7 +58,7 @@ class _MainAppState extends State<MyApp> {
             case Routes.LOGIN:
               return MaterialPageRoute(builder: (_) => LoginScreen());
             case Routes.HOME:
-              return MaterialPageRoute(builder: (_) => HomePage());
+              return MaterialPageRoute(builder: (_) => HomeScreen());
             default:
               return MaterialPageRoute(
                 builder: (_) {
