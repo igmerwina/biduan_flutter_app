@@ -2,6 +2,8 @@ import 'package:doctor_booking_app/feature/schedule/schedule.dart';
 import 'package:doctor_booking_app/views/form_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BiduanDetail extends StatefulWidget {
   @override
@@ -40,33 +42,55 @@ class _BiduanDetailState extends State<BiduanDetail> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          "Inul Daratista",
-                          style: TextStyle(fontSize: 32),
+                        SizedBox(
+                          height: 10,
                         ),
-                        Text(
-                          "Goyang Ngebor Speailist",
-                          style: TextStyle(fontSize: 19, color: Colors.grey),
+                        Flexible(
+                          flex: 2,
+                          child: Text(
+                            "Inul Daratista",
+                            style: TextStyle(fontSize: 32, color: Colors.red),
+                          ),
                         ),
                         SizedBox(
-                          height: 40,
+                          height: 6,
                         ),
-                        Row(
-                          children: <Widget>[
-                            IconTile(
-                              backColor: Color(0xffFFECDD),
-                              imgAssetPath: "assets/email.png",
-                            ),
-                            IconTile(
-                              backColor: Color(0xffFEF2F0),
-                              imgAssetPath: "assets/call.png",
-                            ),
-                            IconTile(
-                              backColor: Color(0xffEBECEF),
-                              imgAssetPath: "assets/video_call.png",
-                            ),
-                          ],
-                        )
+                        Flexible(
+                          flex: 1,
+                          child: Text(
+                            "Goyang Ngebor Speailist",
+                            style: TextStyle(fontSize: 19, color: Colors.grey),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        // Flexible(
+                        //   flex: 1,
+                        //   child: Row(
+                        //     children: <Widget>[
+                        //       Expanded(
+                        //         child: IconTile(
+                        //           backColor: Color(0xffFFECDD),
+                        //           imgAssetPath: "assets/email.png",
+                        //         ),
+                        //       ),
+                        //       Expanded(
+                        //         child: IconTile(
+                        //           backColor: Color(0xffFEF2F0),
+                        //           imgAssetPath: "assets/call.png",
+                        //         ),
+                        //       ),
+                        //       Expanded(
+                        //         child: IconTile(
+                        //           backColor: Color(0xffEBECEF),
+                        //           imgAssetPath: "assets/video_call.png",
+                        //         ),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                        LoveRatingButton(),
                       ],
                     ),
                   ),
@@ -293,3 +317,107 @@ class IconTile extends StatelessWidget {
     );
   }
 }
+
+// class LoveRatingButton extends StatefulWidget {
+//   @override
+//   _LoveRatingButtonState createState() => _LoveRatingButtonState();
+// }
+
+// class _LoveRatingButtonState extends State<LoveRatingButton> {
+//   // Status rating love: apakah sudah di-tap (liked) atau belum
+//   bool isLoved = false; 
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Expanded(
+//       child: GestureDetector(
+//         onTap: () {
+//           // Toggle the status
+//           setState(() {
+//             isLoved = !isLoved; // Ubah status liked
+//           });
+//         },
+//         child: IconTile(
+//           // Ganti gambar atau tampilkan emoji love sesuai status
+//           imgAssetPath: isLoved ? "assets/notlike.png" : "assets/like2.png",
+//           // Mengubah warna berdasarkan status liked
+//           // backgroundColor: isLoved ? Colors.red : Colors.grey,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class LoveRatingButton extends StatefulWidget {
+  @override
+  _LoveRatingButtonState createState() => _LoveRatingButtonState();
+}
+
+class _LoveRatingButtonState extends State<LoveRatingButton> {
+  // Status rating love: apakah sudah di-tap (liked) atau belum
+  bool isLoved = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Row(
+        children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                // Toggle the status
+                setState(() {
+                  isLoved = !isLoved; // Ubah status liked
+                });
+              },
+              child: IconTile(
+                // Ganti gambar atau tampilkan emoji love sesuai status
+                imgAssetPath: isLoved ? "assets/notlike.png" : "assets/like2.png",
+                // Mengubah warna berdasarkan status liked
+                // backgroundColor: isLoved ? Colors.red : Colors.grey,
+              ),
+            ),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                // Fungsi untuk membagikan konten
+                _shareContent();
+              },
+              child: IconTile(
+                imgAssetPath: "assets/share2.png",
+              ),
+            ),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: () async {
+                final Uri launchUri = Uri.parse('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+                if (await launchUrl(launchUri)) {
+                  await launchUrl(launchUri);
+                } else {
+                  throw 'Could not launch $launchUri';
+                }
+              },
+              child: IconTile(
+                imgAssetPath: "assets/yotube.png",
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  void _shareContent() async {
+    // Fungsi untuk membagikan konten
+    final box = context.findRenderObject() as RenderBox?;
+    await Share.share(
+      'Check out my website https://example.com',
+      subject: 'This is my website!',
+      sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+    );
+  }
+}
+
+
