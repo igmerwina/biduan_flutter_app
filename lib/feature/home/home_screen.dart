@@ -1,4 +1,5 @@
 import 'package:doctor_booking_app/data/data.dart';
+import 'package:doctor_booking_app/feature/home/biduan_detail.dart';
 import 'package:doctor_booking_app/model/speciality.dart';
 import 'package:doctor_booking_app/views/doctor_info.dart';
 import 'package:flutter/material.dart';
@@ -18,14 +19,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int counter = 0;
-  List<String> categories = ["Adults", "Childrens", "Womens", "Mens"];
+  List<String> categories = ["Karaoke", "Hajatan", "Company Gathering"];
 
   late List<SpecialityModel> specialities;
 
-  void incrementCounter() {
-    setState(() {
-      counter++;
-    });
+  @override
+  void initState() {
+    initLocal();
+    super.initState();
 
     specialities = getSpeciality();
   }
@@ -35,12 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
     bool isUserLoggedIn = pref.isUserLoggedIn();
     String token = pref.getUserToken() ?? "";
     Logger().d("HOMESCREEN $isUserLoggedIn || $token");
-  }
-
-  @override
-  void initState() {
-    initLocal();
-    super.initState();
   }
 
   @override
@@ -55,8 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         iconTheme: IconThemeData(color: Colors.black87),
       ),
-      drawer: Drawer(child: Container() // Populate the Drawer in the next step.
-          ),
+      // drawer: Drawer(child: Container() // Populate the Drawer in the next step.
+      //     ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
@@ -68,7 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 10,
               ),
               Text(
-                "Find Your \nConsultation",
+                // "Temukan \nBiduan yang \nAnda Butuhkan",
+                "Temukan Biduan yang Anda Butuhkan",
                 style: TextStyle(
                     color: Colors.black87.withOpacity(0.8),
                     fontSize: 30,
@@ -100,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 30,
               ),
               Text(
-                "Categories",
+                "Kategori",
                 style: TextStyle(
                     color: Colors.black87.withOpacity(0.8),
                     fontSize: 25,
@@ -128,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20,
               ),
               Container(
-                height: 250,
+                height: 260,
                 child: ListView.builder(
                     itemCount: specialities.length,
                     shrinkWrap: true,
@@ -147,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20,
               ),
               Text(
-                "Doctos",
+                "TOP Rating",
                 style: TextStyle(
                     color: Colors.black87.withOpacity(0.8),
                     fontSize: 25,
@@ -156,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 20,
               ),
-              DoctorsTile()
+              BiduanTile()
             ],
           ),
         ),
@@ -233,7 +229,7 @@ class SpecialistTile extends StatelessWidget {
             height: 6,
           ),
           Text(
-            "$noOfDoctors Doctors",
+            "$noOfDoctors Biduan",
             style: TextStyle(color: Colors.white, fontSize: 13),
           ),
           Image.asset(
@@ -262,6 +258,64 @@ class DoctorsTile extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Image.asset(
+              "assets/female-singer.png",
+              height: 50,
+            ),
+            SizedBox(
+              width: 17,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "Lintang A",
+                  style: TextStyle(color: Color(0xffFC9535), fontSize: 19),
+                ),
+                SizedBox(
+                  height: 2,
+                ),
+                Text(
+                  "Terapis Full Body",
+                  style: TextStyle(fontSize: 15),
+                )
+              ],
+            ),
+            Spacer(),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 9),
+              decoration: BoxDecoration(
+                  color: Color(0xffFBB97C),
+                  borderRadius: BorderRadius.circular(13)),
+              child: Text(
+                "Call",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BiduanTile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => BiduanDetail()));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            color: Color(0xffFFEEE0), borderRadius: BorderRadius.circular(20)),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+        child: Row(
+          children: <Widget>[
+            Image.asset(
               "assets/doctor_pic.png",
               height: 50,
             ),
@@ -272,14 +326,14 @@ class DoctorsTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Dr. Stefeni Albert",
+                  "Inul Daratista",
                   style: TextStyle(color: Color(0xffFC9535), fontSize: 19),
                 ),
                 SizedBox(
                   height: 2,
                 ),
                 Text(
-                  "Heart Speailist",
+                  "Goyang Ngebor Speailist",
                   style: TextStyle(fontSize: 15),
                 )
               ],

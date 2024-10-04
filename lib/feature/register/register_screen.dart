@@ -49,22 +49,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        title: Text("Daftar"),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(1.0),
-          child: Container(
-            color: ColorsCustom.borderSoft,
-            height: 1.0,
-          ),
-        ),
-      ),
       body: SafeArea(
         child: BlocConsumer<RegisterBloc, RegisterState>(
           listener: (context, state) {
@@ -121,7 +105,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          'Lengkapi informasi untuk mulai investasi, gadai dan transaksi finansial lainnya.',
+                          'Lengkapi informasi untuk mulai proses pijat dengan biduan & fasilitas spesial (doa bareng)',
                           style: TextStyle(
                             color: ColorsCustom.generalText,
                             fontSize: 15,
