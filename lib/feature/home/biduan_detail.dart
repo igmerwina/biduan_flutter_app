@@ -28,7 +28,7 @@ class _BiduanDetailState extends State<BiduanDetail> {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Image.asset("assets/doctor_pic2.png", height: 220),
+                  Image.asset("assets/23_1.png", height: 180),
                   SizedBox(
                     width: 20,
                   ),
@@ -253,7 +253,7 @@ Open till Drop''',
                     ),
                   )
                 ],
-              )
+              ),
             ],
           ),
         ),

@@ -9,6 +9,7 @@ class DefaultButton extends StatelessWidget {
   final bool isMedium;
   final bool isLarge;
   final double? elevation;
+  final Color? color;
 
   const DefaultButton({
     super.key,
@@ -18,12 +19,14 @@ class DefaultButton extends StatelessWidget {
     this.isMedium = true,
     this.isLarge = false,
     this.elevation,
+    this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
     ColorScheme colorScheme = themeData.colorScheme;
+    color ?? ColorsCustom.primary;
 
     return SizedBox(
       height: 45,
@@ -33,7 +36,7 @@ class DefaultButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6),
             ),
-            backgroundColor: ColorsCustom.primary,
+            backgroundColor: color,
             disabledBackgroundColor: colorScheme.outline,
             elevation: elevation),
         child: Padding(
