@@ -1,3 +1,4 @@
+import 'package:doctor_booking_app/views/form_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -193,14 +194,21 @@ Open till Drop''',
                           SizedBox(
                             width: 16,
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width / 2 - 130,
-                            child: Text(
-                              "List Of Schedule",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 17),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => FormBooking()),
+                              );
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width / 2 - 130,
+                              child: Text(
+                                "Book Now Singer",
+                                style: TextStyle(color: Colors.white, fontSize: 17),
+                              ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),

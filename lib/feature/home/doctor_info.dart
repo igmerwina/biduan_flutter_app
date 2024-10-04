@@ -195,7 +195,7 @@ Open till 7 Pm''',
                           Container(
                             width: MediaQuery.of(context).size.width / 2 - 130,
                             child: Text(
-                              "List Of Schedule",
+                              "Booked Form",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 17),
                             ),
