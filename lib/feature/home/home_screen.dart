@@ -7,8 +7,10 @@ import 'package:flutter/services.dart';
 import 'package:logger/logger.dart';
 import 'package:doctor_booking_app/data/app_preferences.dart';
 import 'package:doctor_booking_app/injection.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-String? selectedCategorie = "Adults";
+String? selectedCategorie = "Karaoke";
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -212,32 +214,40 @@ class SpecialistTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      margin: EdgeInsets.only(right: 16),
-      decoration: BoxDecoration(
-          color: backColor, borderRadius: BorderRadius.circular(24)),
-      padding: EdgeInsets.only(top: 16, right: 16, left: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            speciality!,
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
-          SizedBox(
-            height: 6,
-          ),
-          Text(
-            "$noOfDoctors Biduan",
-            style: TextStyle(color: Colors.white, fontSize: 13),
-          ),
-          Image.asset(
-            imgAssetPath!,
-            height: 160,
-            fit: BoxFit.fitHeight,
-          )
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => BiduanDetail()),
+        );
+      },
+      child: Container(
+        width: 150,
+        margin: EdgeInsets.only(right: 16),
+        decoration: BoxDecoration(
+            color: backColor, borderRadius: BorderRadius.circular(24)),
+        padding: EdgeInsets.only(top: 16, right: 16, left: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              speciality!,
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            SizedBox(
+              height: 6,
+            ),
+            Text(
+              "$noOfDoctors Bintang",
+              style: TextStyle(color: Colors.white, fontSize: 13),
+            ),
+            Image.asset(
+              imgAssetPath!,
+              height: 160,
+              fit: BoxFit.fitHeight,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -326,30 +336,71 @@ class BiduanTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Inul Daratista",
+                  "Lintang A",
                   style: TextStyle(color: Color(0xffFC9535), fontSize: 19),
                 ),
                 SizedBox(
                   height: 2,
                 ),
                 Text(
-                  "Goyang Ngebor Speailist",
+                  "120 Bintang",
                   style: TextStyle(fontSize: 15),
                 )
               ],
             ),
             Spacer(),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 9),
-              decoration: BoxDecoration(
-                  color: Color(0xffFBB97C),
-                  borderRadius: BorderRadius.circular(13)),
+            // Container(
+            //   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 9),
+            //   decoration: BoxDecoration(
+            //       color: Color(0xffFBB97C),
+            //       borderRadius: BorderRadius.circular(13)),
+            //   child: Text(
+            //     "Call",
+            //     style: TextStyle(
+            //         color: Colors.white,
+            //         fontSize: 13,
+            //         fontWeight: FontWeight.w500),
+            //   ),
+            // ) // For iOS
+
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xffFBB97C),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(13)),
+              ),
+              onPressed: () async {
+                const phoneNumber = '081325673063';
+
+                // Check if the platform is iOS or Android
+                if (Theme.of(context).platform == TargetPlatform.iOS) {
+                  // iOS: Use url_launcher to open the phone dialer
+                  final Uri launchUri =
+                      Uri.parse('https://wa.me/6282121339191');
+
+                  if (await canLaunchUrl(launchUri)) {
+                    await launchUrl(launchUri);
+                  } else {
+                    print('Could not launch dialer');
+                  }
+                } else {
+                  // Android: Use FlutterPhoneDirectCaller to make the call directly
+                  bool? res =
+                      await FlutterPhoneDirectCaller.callNumber(phoneNumber);
+                  if (res != null && res) {
+                    print('Call made successfully');
+                  } else {
+                    print('Call failed');
+                  }
+                }
+              },
               child: Text(
                 "Call",
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500),
+                  color: Colors.white,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             )
           ],
