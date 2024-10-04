@@ -1,4 +1,5 @@
 import 'package:doctor_booking_app/feature/schedule/schedule.dart';
+import 'package:doctor_booking_app/views/form_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -41,11 +42,11 @@ class _NewComerDetailState extends State<NewComerDetail> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "Inul Otista",
+                          "Ghea Kyubi",
                           style: TextStyle(fontSize: 32),
                         ),
                         Text(
-                          "Goyang Dumang Speailist",
+                          "Goyang From Home Specialist",
                           style: TextStyle(fontSize: 19, color: Colors.grey),
                         ),
                         SizedBox(
@@ -83,7 +84,7 @@ class _NewComerDetailState extends State<NewComerDetail> {
                 height: 16,
               ),
               Text(
-                  "Inul Otista, yang memiliki nama asli Inul Otista Raya, adalah seorang penyanyi dangdut terkenal asal Indonesia yang lahir pada 21 Januari 1779 di Pasuruan, Jawa Timur. Ayo Booking Saya bapak-bapak",
+                "Ghea Kyubi, yang memiliki nama asli Ghea Kyubi bintai Naruto, adalah seorang penyanyi dangdut terkenal asal Indonesia yang lahir pada 21 Januari 1779 di Pasuruan, Jawa Timur. Ayo Booking Saya bapak-bapak",
                 style: TextStyle(color: Colors.grey, fontSize: 16),
                 textAlign: TextAlign.justify,
               ),
@@ -195,14 +196,21 @@ Open till Drop''',
                           SizedBox(
                             width: 16,
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width / 2 - 130,
-                            child: Text(
-                              "Booking Now",
-                              style:
-                              TextStyle(color: Colors.white, fontSize: 17),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => FormBooking()),
+                              );
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width / 2 - 130,
+                              child: Text(
+                                "Book Biduan",
+                                style: TextStyle(color: Colors.white, fontSize: 17),
+                              ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),

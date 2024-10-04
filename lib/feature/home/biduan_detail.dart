@@ -114,7 +114,7 @@ class _BiduanDetailState extends State<BiduanDetail> {
                               ),
                               Container(
                                   width:
-                                      MediaQuery.of(context).size.width - 268,
+                                  MediaQuery.of(context).size.width - 268,
                                   child: Text(
                                     "Jl. Embong Malang No. 1,3,5, Tunjungan Plaza Tunjungan Plaza 5, Lantai 6, Surabaya Telp. (031) 546 8282",
                                     style: TextStyle(color: Colors.grey),
@@ -146,7 +146,7 @@ class _BiduanDetailState extends State<BiduanDetail> {
                               ),
                               Container(
                                   width:
-                                      MediaQuery.of(context).size.width - 268,
+                                  MediaQuery.of(context).size.width - 268,
                                   child: Text(
                                     '''Monday - Friday
 Open till Drop''',
@@ -179,7 +179,7 @@ Open till Drop''',
                   Expanded(
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+                      EdgeInsets.symmetric(vertical: 24, horizontal: 16),
                       decoration: BoxDecoration(
                           color: Color(0xffFBB97C),
                           borderRadius: BorderRadius.circular(20)),
@@ -205,7 +205,7 @@ Open till Drop''',
                             child: Container(
                               width: MediaQuery.of(context).size.width / 2 - 130,
                               child: Text(
-                                "Book Now Singer",
+                                "Book Biduan",
                                 style: TextStyle(color: Colors.white, fontSize: 17),
                               ),
                             ),
@@ -230,7 +230,7 @@ Open till Drop''',
                       },
                       child: Container(
                         padding:
-                            EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+                        EdgeInsets.symmetric(vertical: 24, horizontal: 16),
                         decoration: BoxDecoration(
                             color: Color(0xffA5A5A5),
                             borderRadius: BorderRadius.circular(20)),
@@ -248,7 +248,7 @@ Open till Drop''',
                             ),
                             Container(
                               width:
-                                  MediaQuery.of(context).size.width / 2 - 130,
+                              MediaQuery.of(context).size.width / 2 - 130,
                               child: Text(
                                 "Jadwal Harian",
                                 style: TextStyle(
