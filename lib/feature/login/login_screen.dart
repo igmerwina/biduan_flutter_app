@@ -280,7 +280,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Text(
                                     "Lupa Password?",
                                     style: TextStyle(
-                                      color: ColorsCustom.primary,
+                                      color: ColorsCustom.googleBg,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14,
                                     ),
@@ -307,6 +307,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             }
                                           : null,
                                       text: "Masuk",
+                                      color: ColorsCustom.googleBg,
                                     ),
                                   ),
                                   GestureDetector(
@@ -320,11 +321,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                         color: ColorsCustom.white,
                                         borderRadius: BorderRadius.circular(6),
                                         border: Border.all(
-                                            color: ColorsCustom.primary,
+                                            color: ColorsCustom.googleBg,
                                             width: 1),
                                       ),
-                                      child: SvgPicture.asset(
-                                          "assets/ic_biometric.svg"),
+                                      child: Image.asset("assets/finger.png"),
                                     ),
                                   )
                                 ],
@@ -343,7 +343,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       text: 'Daftar',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          color: ColorsCustom.primary),
+                                          color: ColorsCustom.googleBg),
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () {
                                           Navigator.pushNamed(

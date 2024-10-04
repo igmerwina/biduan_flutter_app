@@ -211,7 +211,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 text: 'Syarat & Ketentuan',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: ColorsCustom.primary,
+                                  color: ColorsCustom.googleBg,
                                 ),
                               ),
                               TextSpan(text: " dan "),
@@ -219,7 +219,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 text: 'Kebijakan Privasi',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: ColorsCustom.primary,
+                                  color: ColorsCustom.googleBg,
                                 ),
                               ),
                               TextSpan(text: " yang berlaku."),
@@ -248,6 +248,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               }
                             : null,
                         text: "Daftar",
+                        color: ColorsCustom.googleBg,
                       ),
                       SizedBox(height: 12),
                       RichText(
@@ -260,7 +261,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               text: 'Masuk',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: ColorsCustom.primary,
+                                color: ColorsCustom.googleBg,
                               ),
                               recognizer: _tapRecognizer
                                 ..onTap = () {
