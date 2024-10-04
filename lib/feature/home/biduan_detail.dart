@@ -1,3 +1,4 @@
+import 'package:doctor_booking_app/feature/schedule/schedule.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -196,7 +197,7 @@ Open till Drop''',
                           Container(
                             width: MediaQuery.of(context).size.width / 2 - 130,
                             child: Text(
-                              "List Of Schedule",
+                              "Booking Now",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 17),
                             ),
@@ -209,36 +210,48 @@ Open till Drop''',
                     width: 16,
                   ),
                   Expanded(
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-                      decoration: BoxDecoration(
-                          color: Color(0xffA5A5A5),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                  color: Color(0xffBBBBBB),
-                                  borderRadius: BorderRadius.circular(16)),
-                              child: Image.asset("assets/list.png")),
-                          SizedBox(
-                            width: 16,
+                    child: GestureDetector(
+                      onTap: () {
+                        // Navigate to a new screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ScheduleScreen(),
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width / 2 - 130,
-                            child: Text(
-                              "Singer Daily Post",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 17),
+                        );
+                      },
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+                        decoration: BoxDecoration(
+                            color: Color(0xffA5A5A5),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                    color: Color(0xffBBBBBB),
+                                    borderRadius: BorderRadius.circular(16)),
+                                child: Image.asset("assets/list.png")),
+                            SizedBox(
+                              width: 16,
                             ),
-                          )
-                        ],
+                            Container(
+                              width:
+                                  MediaQuery.of(context).size.width / 2 - 130,
+                              child: Text(
+                                "Jadwal Harian",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 17),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
               Row(

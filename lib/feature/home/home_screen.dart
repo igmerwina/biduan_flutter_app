@@ -348,13 +348,13 @@ class BiduanTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(13)),
               ),
               onPressed: () async {
-                const phoneNumber = '081325673063';
+                const phoneNumber = '087729833846';
 
                 // Check if the platform is iOS or Android
                 if (Theme.of(context).platform == TargetPlatform.iOS) {
                   // iOS: Use url_launcher to open the phone dialer
                   final Uri launchUri =
-                      Uri.parse('https://wa.me/6282121339191');
+                      Uri.parse('https://wa.me/6287729833846');
 
                   if (await canLaunchUrl(launchUri)) {
                     await launchUrl(launchUri);
